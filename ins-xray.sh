@@ -1,25 +1,10 @@
 #!/bin/bash
-BIBlack='\033[1;90m'      # Black
-BIRed='\033[1;91m'        # Red
-BIGreen='\033[1;92m'      # Green
-BIYellow='\033[1;93m'     # Yellow
-BIBlue='\033[1;94m'       # Blue
-BIPurple='\033[1;95m'     # Purple
-BICyan='\033[1;96m'       # Cyan
-BIWhite='\033[1;97m'      # White
-UWhite='\033[4;37m'       # White
-On_IPurple='\033[0;105m'  #
-On_IRed='\033[0;101m'
-IBlack='\033[0;90m'       # Black
-IRed='\033[0;91m'         # Red
-IGreen='\033[0;92m'       # Green
-IYellow='\033[0;93m'      # Yellow
-IBlue='\033[0;94m'        # Blue
-IPurple='\033[0;95m'      # Purple
-ICyan='\033[0;96m'        # Cyan
-IWhite='\033[0;97m'       # White
-NC='\e[0m'
-
+# =========================================
+# Quick Setup | Script Setup Manager
+# Edition : Stable Edition V1.0
+# Auther  : Adit Ardiansyah
+# (C) Copyright 2022
+# =========================================
 # // Export Color & Information
 export RED='\033[0;31m'
 export GREEN='\033[0;32m'
@@ -117,9 +102,9 @@ else
 domain=$IP
 fi
 
-echo -e "[ ${green}INFO${NC} ] Checking... "
+echo -e "[ ${GREEN}INFO${NC} ] Checking... "
 sleep 1
-echo -e "[ ${green}INFO$NC ] Setting ntpdate"
+echo -e "[ ${GREEN}INFO$NC ] Setting ntpdate"
 sleep 1
 domain=$(cat /root/domain)
 apt install iptables iptables-persistent -y
@@ -707,12 +692,12 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 EOF
 
-echo -e "[ ${green}ok${NC} ] Enable & Start & Restart & Xray"
+echo -e "[ ${GREEN}ok${NC} ] Enable & Start & Restart & Xray"
 systemctl daemon-reload >/dev/null 2>&1
 systemctl enable xray >/dev/null 2>&1
 systemctl start xray >/dev/null 2>&1
 systemctl restart xray >/dev/null 2>&1
-echo -e "[ ${green}ok${NC} ] Enable & Start & Restart & Nginx"
+echo -e "[ ${GREEN}ok${NC} ] Enable & Start & Restart & Nginx"
 systemctl daemon-reload >/dev/null 2>&1
 systemctl enable nginx >/dev/null 2>&1
 systemctl start nginx >/dev/null 2>&1
@@ -723,7 +708,7 @@ sleep 1
 chown -R www-data:www-data /home/vps/public_html
 # Enable & Restart & Xray & Trojan & Nginx
 sleep 1
-echo -e "[ ${green}ok${NC} ] Restart & Xray & Nginx"
+echo -e "[ ${GREEN}ok${NC} ] Restart & Xray & Nginx"
 systemctl daemon-reload >/dev/null 2>&1
 systemctl restart xray >/dev/null 2>&1
-systemctl restart nginx >/dev/null 2>&1�
+systemctl restart nginx >/dev/null 2>&1
