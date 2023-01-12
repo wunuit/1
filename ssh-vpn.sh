@@ -1,3 +1,4 @@
+#!/bin/bash
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
 BIGreen='\033[1;92m'      # Green
@@ -577,4 +578,4 @@ sleep 5
 clear
 rm -fr /root/key.pem >/dev/null 2>&1
 rm -fr /root/cert.pem >/dev/null 2>&1
-rm -fr /root/ssh-vpn.sh >/dev/null 2>&1 
+rm -fr /root/ssh-vpn.sh >/dev/null 2>&1�
