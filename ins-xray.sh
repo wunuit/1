@@ -1,3 +1,4 @@
+#!/bin/bash
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
 BIGreen='\033[1;92m'      # Green
@@ -725,4 +726,4 @@ sleep 1
 echo -e "[ ${green}ok${NC} ] Restart & Xray & Nginx"
 systemctl daemon-reload >/dev/null 2>&1
 systemctl restart xray >/dev/null 2>&1
-systemctl restart nginx >/dev/null 2>&1 
+systemctl restart nginx >/dev/null 2>&1�
