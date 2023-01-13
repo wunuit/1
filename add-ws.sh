@@ -256,7 +256,7 @@ ami=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/kuota-habis",
+      "path": "/chat",
       "type": "none",
       "host": "bug.com",
       "tls": "tls"
