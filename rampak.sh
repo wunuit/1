@@ -131,7 +131,7 @@ elif [[ -e /etc/centos-release ]]; then
 	OS=centos
 fi
 
-echo "RAMPAK"
+echo "Rampak"
 echo "Progress"
 sleep 2
 
