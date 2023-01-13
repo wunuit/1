@@ -132,7 +132,7 @@ elif [[ -e /etc/centos-release ]]; then
 fi
 
 echo "RAMPAK"
-echo "${GREEN}"
+echo "Progress"
 sleep 2
 
 /etc/init.d/vnstat restart >/dev/null 2>&1
