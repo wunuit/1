@@ -300,13 +300,9 @@ echo -e "Link TLS : ${vmesslink1}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Link none TLS : ${vmesslink2}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-echo -e "Link TLS (WORRYFREE) : ${vmesslink6}" | tee -a /etc/log-create-user.log
+echo -e "Link (WORRYFREE) : ${vmesslink3}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-#echo -e "Link none TLS (WORRYFREE) : ${vmesslink3}" | tee -a /etc/log-create-user.log
-#echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-#echo -e "Link TLS (Kouta-Habis) : ${vmesslink7}" | tee -a /etc/log-create-user.log
-echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-echo -e "Link none TLS (FLEX) : ${vmesslink4}" | tee -a /etc/log-create-user.log
+echo -e "Link none (FLEX) : ${vmesslink4}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Link GRPC : ${vmesslink5}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
