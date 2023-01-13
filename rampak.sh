@@ -131,8 +131,8 @@ elif [[ -e /etc/centos-release ]]; then
 	OS=centos
 fi
 
-echo "${GREEN} RAMPAK ${NC}"
-echo "${GREEN} Progress...{NC}"
+echo "RAMPAK"
+echo "${GREEN}"
 sleep 2
 
 /etc/init.d/vnstat restart >/dev/null 2>&1
