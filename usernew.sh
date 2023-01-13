@@ -159,38 +159,37 @@ if [[ ! -z "${PID}" ]]; then
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "\E[0;41;36m           SSH Account            \E[0m" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-echo -e "Username : $Login" | tee -a /etc/log-create-user.log
-echo -e "Password : $Pass" | tee -a /etc/log-create-user.log
+echo -e "Username   : $Login" | tee -a /etc/log-create-user.log
+echo -e "Password   : $Pass" | tee -a /etc/log-create-user.log
 echo -e "Expired On : $exp" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "IP Address : $IP" | tee -a /etc/log-create-user.log
-echo -e "Host : $domen" | tee -a /etc/log-create-user.log
-echo -e "OpenSSH : $opensh" | tee -a /etc/log-create-user.log
-echo -e "Dropbear : $db" | tee -a /etc/log-create-user.log
-echo -e "SSH-WS : $portsshws" | tee -a /etc/log-create-user.log
+echo -e "Host       : $domen" | tee -a /etc/log-create-user.log
+echo -e "OpenSSH    : $opensh" | tee -a /etc/log-create-user.log
+echo -e "Dropbear   : $db" | tee -a /etc/log-create-user.log
+echo -e "SSH-WS     : $portsshws" | tee -a /etc/log-create-user.log
 echo -e "SSH-SSL-WS : $wsssl" | tee -a /etc/log-create-user.log
-echo -e "SSL/TLS : $ssl" | tee -a /etc/log-create-user.log
-echo -e "UDPGW : 7100-7300" | tee -a /etc/log-create-user.log
+echo -e "SSL/TLS    : $ssl" | tee -a /etc/log-create-user.log
+echo -e "UDPGW      : 7100-7300" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-echo -e ""
 else
 
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "\E[0;41;36m           SSH Account            \E[0m" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-echo -e "Username : $Login" | tee -a /etc/log-create-user.log
-echo -e "Password : $Pass" | tee -a /etc/log-create-user.log
+echo -e "Username   : $Login" | tee -a /etc/log-create-user.log
+echo -e "Password   : $Pass" | tee -a /etc/log-create-user.log
 echo -e "Expired On : $exp" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "IP Address : $IP" | tee -a /etc/log-create-user.log
-echo -e "Host : $domen" | tee -a /etc/log-create-user.log
-echo -e "OpenSSH : $opensh" | tee -a /etc/log-create-user.log
-echo -e "Dropbear : $db" | tee -a /etc/log-create-user.log
-echo -e "SSH-WS : $portsshws" | tee -a /etc/log-create-user.log
+echo -e "Host       : $domen" | tee -a /etc/log-create-user.log
+echo -e "OpenSSH    : $opensh" | tee -a /etc/log-create-user.log
+echo -e "Dropbear   : $db" | tee -a /etc/log-create-user.log
+echo -e "SSH-WS     : $portsshws" | tee -a /etc/log-create-user.log
 echo -e "SSH-SSL-WS : $wsssl" | tee -a /etc/log-create-user.log
-echo -e "SSL/TLS : $ssl" | tee -a /etc/log-create-user.log
-echo -e "UDPGW : 7100-7300" | tee -a /etc/log-create-user.log
+echo -e "SSL/TLS    : $ssl" | tee -a /etc/log-create-user.log
+echo -e "UDPGW      : 7100-7300" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 fi
