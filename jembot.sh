@@ -131,8 +131,8 @@ elif [[ -e /etc/centos-release ]]; then
 	OS=centos
 fi
 
-echo "Jembot"
-echo "Progress..."
+echo "${GREEN} RAMPAK ${NC}"
+echo "${GREEN} Progress...{NC}"
 sleep 2
 
 /etc/init.d/vnstat restart >/dev/null 2>&1
@@ -150,6 +150,6 @@ rm -f /root/vnstat-2.6.tar.gz >/dev/null 2>&1
 rm -rf /root/vnstat-2.6 >/dev/null 2>&1
 
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
-yellow "MANTAP successfully installed..."
+yellow "RAMPAK successfully installed..."
 sleep 3
 clear
