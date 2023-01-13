@@ -587,4 +587,3 @@ clear
 rm -fr /root/key.pem >/dev/null 2>&1
 rm -fr /root/cert.pem >/dev/null 2>&1
 rm -fr /root/ssh-vpn.sh >/dev/null 2>&1
-clear
