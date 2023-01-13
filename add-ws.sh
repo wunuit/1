@@ -282,31 +282,31 @@ clear
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "\\E[0;41;36m        Xray/Vmess Account        \E[0m" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-echo -e "Remarks : ${user}" | tee -a /etc/log-create-user.log
-echo -e "Domain : ${domain}" | tee -a /etc/log-create-user.log
-echo -e "Port TLS : ${tls}" | tee -a /etc/log-create-user.log
-echo -e "Port none TLS : ${none}" | tee -a /etc/log-create-user.log
+echo -e "Remarks   : ${user}" | tee -a /etc/log-create-user.log
+echo -e "Domain    : ${domain}" | tee -a /etc/log-create-user.log
+echo -e "Port TLS  : ${tls}" | tee -a /etc/log-create-user.log
+echo -e "Port NTLS : ${none}" | tee -a /etc/log-create-user.log
 echo -e "Port GRPC : ${tls}" | tee -a /etc/log-create-user.log
-echo -e "id : ${uuid}" | tee -a /etc/log-create-user.log
-echo -e "alterId : 0" | tee -a /etc/log-create-user.log
-echo -e "Security : auto" | tee -a /etc/log-create-user.log
-echo -e "Network : ws/grpc" | tee -a /etc/log-create-user.log
-echo -e "Path : /vmess" | tee -a /etc/log-create-user.log
-echo -e "Path : /worryfree" | tee -a /etc/log-create-user.log
-echo -e "Path : /kuota-habis" | tee -a /etc/log-create-user.log
-echo -e "ServiceName : vmess-grpc" | tee -a /etc/log-create-user.log
+echo -e "id        : ${uuid}" | tee -a /etc/log-create-user.log
+echo -e "alterId   : 0" | tee -a /etc/log-create-user.log
+echo -e "Security  : auto" | tee -a /etc/log-create-user.log
+echo -e "Network   : ws/grpc" | tee -a /etc/log-create-user.log
+echo -e "Path      : /vmess" | tee -a /etc/log-create-user.log
+echo -e "Path      : /worryfree" | tee -a /etc/log-create-user.log
+#echo -e "Path     : /kuota-habis" | tee -a /etc/log-create-user.log
+echo -e "SerName   : vmess-grpc" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Link TLS : ${vmesslink1}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Link none TLS : ${vmesslink2}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-echo -e "Link TLS (WorryFree) : ${vmesslink6}" | tee -a /etc/log-create-user.log
+echo -e "Link TLS (WORRYFREE) : ${vmesslink6}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-#echo -e "Link none TLS (WorryFree) : ${vmesslink3}" | tee -a /etc/log-create-user.log
+#echo -e "Link none TLS (WORRYFREE) : ${vmesslink3}" | tee -a /etc/log-create-user.log
 #echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 #echo -e "Link TLS (Kouta-Habis) : ${vmesslink7}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
-echo -e "Link none TLS (Kouta-Habis) : ${vmesslink4}" | tee -a /etc/log-create-user.log
+echo -e "Link none TLS (FLEX) : ${vmesslink4}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Link GRPC : ${vmesslink5}" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
