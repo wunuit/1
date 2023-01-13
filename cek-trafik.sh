@@ -1,3 +1,15 @@
+#!/bin/bash
+# Menu For Script
+# Edition : Stable Edition V1.0
+# Auther  : 
+# (C) Copyright 2021-2022
+# =========================================
+#!/bin/bash
+# Menu For Script
+# Edition : Stable Edition V1.0
+# Auther  : 
+# (C) Copyright 2021-2022
+# =========================================
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
 BIGreen='\033[1;92m'      # Green

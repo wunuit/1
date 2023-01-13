@@ -1,4 +1,9 @@
 #!/bin/bash
+# Menu For Script
+# Edition : Stable Edition V1.0
+# Auther  : 
+# (C) Copyright 2021-2022
+# =========================================
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
 BIGreen='\033[1;92m'      # Green
@@ -145,6 +150,6 @@ rm -f /root/vnstat-2.6.tar.gz >/dev/null 2>&1
 rm -rf /root/vnstat-2.6 >/dev/null 2>&1
 
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
-yellow "JEMBOOT successfully installed..."
+yellow "MANTAP successfully installed..."
 sleep 3
 clear

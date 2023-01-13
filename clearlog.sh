@@ -1,4 +1,15 @@
-# Color
+#!/bin/bash
+# Menu For Script
+# Edition : Stable Edition V1.0
+# Auther  : 
+# (C) Copyright 2021-2022
+# =========================================
+#!/bin/bash
+# Menu For Script
+# Edition : Stable Edition V1.0
+# Auther  : 
+# (C) Copyright 2021-2022
+# =========================================
 RED='\033[0;31m'
 NC='\033[0m'
 #GREEN='\033[0;32m'

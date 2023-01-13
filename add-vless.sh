@@ -1,3 +1,9 @@
+#!/bin/bash
+# Menu For Script
+# Edition : Stable Edition V1.0
+# Auther  : 
+# (C) Copyright 2021-2022
+# =========================================
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
 BIGreen='\033[1;92m'      # Green
@@ -150,9 +156,9 @@ vlesslink2="vless://${uuid}@${domain}:$none?path=/vless&encryption=none&type=ws#
 vlesslink3="vless://${uuid}@${domain}:$tls?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 systemctl restart xray
 clear
-echo -e "\033[0;34mттттттттттттттттттттттттттттттттттт\033[0m" | tee -a /etc/log-create-user.log
+echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "\E[44;1;39m        Xray/Vless Account        \E[0m" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34mттттттттттттттттттттттттттттттттттт\033[0m" | tee -a /etc/log-create-user.log
+echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Remarks : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "port TLS : $tls" | tee -a /etc/log-create-user.log
@@ -162,15 +168,15 @@ echo -e "Network : ws/grpc" | tee -a /etc/log-create-user.log
 echo -e "Encryption : none" | tee -a /etc/log-create-user.log
 echo -e "Path : /vless" | tee -a /etc/log-create-user.log
 echo -e "Path : vless-grpc" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34mттттттттттттттттттттттттттттттттттт\033[0m" | tee -a /etc/log-create-user.log
+echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Link TLS : ${vlesslink1}" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34mттттттттттттттттттттттттттттттттттт\033[0m" | tee -a /etc/log-create-user.log
+echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Link none TLS : ${vlesslink2}" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34mттттттттттттттттттттттттттттттттттт\033[0m" | tee -a /etc/log-create-user.log
+echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Link GRPC : ${vlesslink3}" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34mттттттттттттттттттттттттттттттттттт\033[0m" | tee -a /etc/log-create-user.log
+echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "Expired On : $exp" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34mттттттттттттттттттттттттттттттттттт\033[0m" | tee -a /etc/log-create-user.log
+echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Press any key to back on menu"
 

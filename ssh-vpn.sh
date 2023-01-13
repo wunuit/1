@@ -9,7 +9,7 @@
 clear
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
-BIGreen='\033[1;92m'      # Green
+BIGREEN='\033[1;92m'      # GREEN
 BIYellow='\033[1;93m'     # Yellow
 BIBlue='\033[1;94m'       # Blue
 BIPurple='\033[1;95m'     # Purple
@@ -20,7 +20,7 @@ On_IPurple='\033[0;105m'  #
 On_IRed='\033[0;101m'
 IBlack='\033[0;90m'       # Black
 IRed='\033[0;91m'         # Red
-IGreen='\033[0;92m'       # Green
+IGREEN='\033[0;92m'       # GREEN
 IYellow='\033[0;93m'      # Yellow
 IBlue='\033[0;94m'        # Blue
 IPurple='\033[0;95m'      # Purple
@@ -129,10 +129,10 @@ ver=$VERSION_ID
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=www.akhir.net
-organizationalunit=www.akhir.net
-commonname=www.akhir.net
-email=admin@akhir.net
+organization=geovpn
+organizationalunit=geovpn
+commonname=geovpn
+email=admin@geostore.net
 
 # simple password minimal
 wget -q -O /etc/pam.d/common-password "https://raw.githubusercontent.com/wunuit/1/main/password"
@@ -179,7 +179,7 @@ chmod +x /usr/local/bin/ws-stunnel
 # Installing Service Ovpn Websocket
 cat > /etc/systemd/system/ws-stunnel.service << END
 [Unit]
-Description=Ovpn Websocket By Akhir Zaman
+Description=Ovpn Websocket 
 Documentation=https://xnxx.com
 After=network.target nss-lookup.target
 
@@ -234,22 +234,22 @@ date
 echo ""
 # enable rc local
 sleep 1
-echo -e "[ ${green}INFO${NC} ] Checking... "
+echo -e "[ ${GREEN}INFO${NC} ] Checking... "
 sleep 2
 sleep 1
-echo -e "[ ${green}INFO$NC ] Enable system rc local"
+echo -e "[ ${GREEN}INFO$NC ] Enable system rc local"
 systemctl enable rc-local >/dev/null 2>&1
 systemctl start rc-local.service >/dev/null 2>&1
 
 # disable ipv6
 sleep 1
-echo -e "[ ${green}INFO$NC ] Disable ipv6"
+echo -e "[ ${GREEN}INFO$NC ] Disable ipv6"
 echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6 >/dev/null 2>&1
 sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local >/dev/null 2>&1
 
 # set time GMT +7
 sleep 1
-echo -e "[ ${green}INFO$NC ] Set zona local time to Asia/Jakarta GMT+7"
+echo -e "[ ${GREEN}INFO$NC ] Set zona local time to Asia/Jakarta GMT+7"
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
 # set locale
@@ -259,7 +259,7 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 tesmatch=`screen -list | awk  '{print $1}' | grep -ow "badvpn" | sort | uniq`
 if [ "$tesmatch" = "badvpn" ]; then
 sleep 1
-echo -e "[ ${green}INFO$NC ] Screen badvpn detected"
+echo -e "[ ${GREEN}INFO$NC ] Screen badvpn detected"
 rm /root/screenlog > /dev/null 2>&1
     runningscreen=( `screen -list | awk  '{print $1}' | grep -w "badvpn"` ) # sed 's/\.[^ ]*/ /g'
     for actv in "${runningscreen[@]}"
@@ -277,7 +277,7 @@ else
 echo -ne
 fi
 cd
-echo -e "[ ${green}INFO$NC ] Installing badvpn for game support..."
+echo -e "[ ${GREEN}INFO$NC ] Installing badvpn for game support..."
 #wget -q -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/wunuit/0/main/badvpn-udpgw64"
 wget -q -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/wunuit/1/main/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw  >/dev/null 2>&1
@@ -306,7 +306,7 @@ systemctl restart ssh >/dev/null 2>&1
 
 # install dropbear
 sleep 1
-echo -e "[ ${green}INFO$NC ] Settings Dropbear"
+echo -e "[ ${GREEN}INFO$NC ] Settings Dropbear"
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109"/g' /etc/default/dropbear
@@ -416,7 +416,7 @@ systemctl restart stunnel5 >/dev/null 2>&1
 
 # Install bbr
 sleep 1
-echo -e "[ ${green}INFO$NC ] Install bbr"
+echo -e "[ ${GREEN}INFO$NC ] Install bbr"
 #Optimasi Speed Mod By Akhir Zaman
 Add_To_New_Line(){
 	if [ "$(tail -n1 $1 | wc -l)" == "0"  ];then
@@ -483,7 +483,7 @@ echo "#############################################"
 Install_BBR
 Optimize_Parameters
 sleep 1
-echo -e "[ ${green}INFO$NC ] Install successfully..."
+echo -e "[ ${GREEN}INFO$NC ] Install successfully..."
 
 # install fail2ban
 # Instal DDOS Flate
@@ -491,9 +491,9 @@ rm -fr /usr/local/ddos
 mkdir -p /usr/local/ddos >/dev/null 2>&1
 #clear
 sleep 1
-echo -e "[ ${green}INFO$NC ] Install DOS-Deflate"
+echo -e "[ ${GREEN}INFO$NC ] Install DOS-Deflate"
 sleep 1
-echo -e "[ ${green}INFO$NC ] Downloading source files..."
+echo -e "[ ${GREEN}INFO$NC ] Downloading source files..."
 wget -q -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf
 wget -q -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE
 wget -q -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list
@@ -501,25 +501,25 @@ wget -q -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh
 chmod 0755 /usr/local/ddos/ddos.sh
 cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos  >/dev/null 2>&1
 sleep 1
-echo -e "[ ${green}INFO$NC ] Create cron script every minute...."
+echo -e "[ ${GREEN}INFO$NC ] Create cron script every minute...."
 /usr/local/ddos/ddos.sh --cron > /dev/null 2>&1
 sleep 1
-echo -e "[ ${green}INFO$NC ] Install successfully..."
+echo -e "[ ${GREEN}INFO$NC ] Install successfully..."
 sleep 1
-echo -e "[ ${green}INFO$NC ] Config file at /usr/local/ddos/ddos.conf"
+echo -e "[ ${GREEN}INFO$NC ] Config file at /usr/local/ddos/ddos.conf"
 
 # Banner /etc/issue.net
 rm -fr /etc/issue.net
 rm -fr /etc/issue.net.save
 sleep 1
-echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/wunuit/lekong/main/issue.net"
+echo -e "[ ${GREEN}INFO$NC ] Settings banner"
+wget -q -O /etc/issue.net "https://raw.githubusercontent.com/wunuit/1/main/issue.net"
 chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # Blokir Torrent
-echo -e "[ ${green}INFO$NC ] Set iptables"
+echo -e "[ ${GREEN}INFO$NC ] Set iptables"
 sleep 1
 sudo iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
 sudo iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
@@ -539,7 +539,7 @@ sudo netfilter-persistent reload >/dev/null 2>&1
 
 # remove unnecessary files
 sleep 1
-echo -e "[ ${green}INFO$NC ] Clearing trash"
+echo -e "[ ${GREEN}INFO$NC ] Clearing trash"
 apt autoclean -y >/dev/null 2>&1
 
 if dpkg -s unscd >/dev/null 2>&1; then
@@ -553,25 +553,25 @@ fi
 # apt autoremove -y >/dev/null 2>&1
 # finishing
 cd
-echo -e "[ ${green}ok${NC} ] Restarting openvpn"
+echo -e "[ ${GREEN}ok${NC} ] Restarting openvpn"
 /etc/init.d/cron restart >/dev/null 2>&1
 sleep 1
-echo -e "[ ${green}ok${NC} ] Restarting cron"
+echo -e "[ ${GREEN}ok${NC} ] Restarting cron"
 /etc/init.d/ssh restart >/dev/null 2>&1
 sleep 1
-echo -e "[ ${green}ok${NC} ] Restarting ssh"
+echo -e "[ ${GREEN}ok${NC} ] Restarting ssh"
 /etc/init.d/dropbear restart >/dev/null 2>&1
 sleep 1
-echo -e "[ ${green}ok${NC} ] Restarting dropbear"
+echo -e "[ ${GREEN}ok${NC} ] Restarting dropbear"
 /etc/init.d/fail2ban restart >/dev/null 2>&1
 sleep 1
-echo -e "[ ${green}ok${NC} ] Restarting fail2ban"
+echo -e "[ ${GREEN}ok${NC} ] Restarting fail2ban"
 /etc/init.d/stunnel5 restart >/dev/null 2>&1
 sleep 1
-echo -e "[ ${green}ok${NC} ] Restarting stunnel5"
+echo -e "[ ${GREEN}ok${NC} ] Restarting stunnel5"
 /etc/init.d/vnstat restart >/dev/null 2>&1
 sleep 1
-echo -e "[ ${green}ok${NC} ] Restarting squid "
+echo -e "[ ${GREEN}ok${NC} ] Restarting squid "
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500 >/dev/null 2>&1
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500 >/dev/null 2>&1
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500 >/dev/null 2>&1
