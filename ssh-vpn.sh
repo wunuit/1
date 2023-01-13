@@ -518,9 +518,6 @@ chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
-#ANU
-wget -q https://raw.githubusercontent.com/wunuit/1/main/rampak.sh && chmod +x rampak.sh && ./rampak.sh
-
 # Blokir Torrent
 echo -e "[ ${GREEN}INFO$NC ] Set iptables"
 sleep 1
@@ -589,4 +586,4 @@ sleep 5
 clear
 rm -fr /root/key.pem >/dev/null 2>&1
 rm -fr /root/cert.pem >/dev/null 2>&1
-rm -fr /root/ssh-vpn.sh >/dev/null 2>&1�
+rm -fr /root/ssh-vpn.sh >/dev/null 2>&1 
