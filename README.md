@@ -1,5 +1,5 @@
 ### DAFTAR KE SAYA UNTUK MENDAPATKAN LISENCE KEY
-### HUBUNGI KAMI https://wa.me/+6281239482988 (WhatsApp)
+### HUBUNGI KAMI https://t.me/sampiiiiu (Telgram)
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/76937659/153705486-44e6c1b2-74fa-4d44-be1c-36c8fdb83331.gif"/>
@@ -8,7 +8,7 @@
 <p align="center">WEBSOCKET / SSH / SSL / XRAY</p>
     
 ♦️ Installation Link
-<pre><code>apt --fix-missing update && apt update && apt upgrade -y && apt install -y bzip2 gzip coreutils screen dpkg wget vim curl nano zip unzip && wget -q https://raw.githubusercontent.com/linkkalian/1/main/setup.sh && chmod +x setup.sh && screen -S setup ./setup.sh</code></pre>
+<pre><code>apt --fix-missing update && apt update && apt upgrade -y && apt install -y bzip2 gzip coreutils screen dpkg wget vim curl nano zip unzip && wget -q https://raw.githubusercontent.com/wunuit/1/main/setup.sh && chmod +x setup.sh && screen -S setup ./setup.sh</code></pre>
 
 ### SCRIPT HANYA SUPPORT OS
 - Debian 9,Debian 10,Debian 11
