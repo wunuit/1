@@ -271,7 +271,7 @@ echo -e "\033[1;93m│  ${grenbo}1.${NC} \033[0;36mAdd Account Sodosok     "
 echo -e "\033[1;93m│  ${grenbo}2.${NC} \033[0;36mDelete Account Sodosok     "
 echo -e "\033[1;93m│  ${grenbo}3.${NC} \033[0;36mRenew Account Sodosok     "
 echo -e "\033[1;93m│  ${grenbo}4.${NC} \033[0;36mCek User XRAY     "
-echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 echo ""
 read -p " Select menu : " opt
 echo -e ""
