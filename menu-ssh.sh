@@ -36,6 +36,8 @@ export PURPLE='\033[0;35m'
 export CYAN='\033[0;36m'
 export LIGHT='\033[0;37m'
 export NC='\033[0m'
+grenbo="\e[92;1m"
+NC='\033[0m'
 
 # // Export Banner Status Information
 export EROR="[${RED} EROR ${NC}]"
@@ -119,9 +121,9 @@ fi
 clear
 function del(){
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               DELETE USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m               DELETE USER                \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 echo ""
 read -p "Username SSH to Delete : " Pengguna
 
@@ -139,11 +141,12 @@ menu
 function autodel(){
 clear
                hariini=`date +%d-%m-%Y`
-               echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-               echo -e "\E[0;41;36m               AUTO DELETE                \E[0m"
-               echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
-               echo "Thank you for removing the EXPIRED USERS"
-               echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
+               echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+               echo -e "\033[1;93m│$NC\033[42m               AUTO DELETE                \E[0m"
+               echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+              echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+ echo -e "\033[1;93m│$NC\033[42mThank you for removing the EXPIRED USERS"
+               echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
                cat /etc/shadow | cut -d: -f1,8 | sed /:$/d > /tmp/expirelist.txt
                totalaccounts=`cat /tmp/expirelist.txt | wc -l`
                for((i=1; i<=$totalaccounts; i++ ))
@@ -175,7 +178,7 @@ clear
                fi
                done
                echo " "
-               echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
+               echo -e "\033[1;93m─────────────────────────────────────\033[0m"
                
                read -n 1 -s -r -p "Press any key to back on menu"
                menu
@@ -183,13 +186,13 @@ clear
 }
 function ceklim(){
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         CEK USER MULTI SSH        \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m         CEK USER MULTI SSH        \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 if [ -e "/root/log-limit.txt" ]; then
 echo "User Who Violate The Maximum Limit";
 echo "Time - Username - Number of Multilogin"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m─────────────────────────────────────\033[0m"
 cat /root/log-limit.txt
 else
 echo " No user has committed a violation"
@@ -199,7 +202,7 @@ echo " "
 echo " The user-limit script not been executed."
 fi
 echo " ";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m─────────────────────────────────────\033[0m"
 echo " ";
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
@@ -213,11 +216,12 @@ if [ -e "/var/log/secure" ]; then
 fi
                
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         Dropbear User Login       \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo "ID  |  Username  |  IP Address";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m         Dropbear User Login              \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42mID  |  Username  |  IP Address            \E[0m";
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 cat $LOG | grep -i dropbear | grep -i "Password auth succeeded" > /tmp/login-db.txt;
 for PID in "${data[@]}"
 do
@@ -228,15 +232,16 @@ do
         if [ $NUM -eq 1 ]; then
                 echo "$PID - $USER - $IP";
         fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m─────────────────────────────────────\033[0m"
 
 done
 echo " "
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m          OpenSSH User Login       \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo "ID  |  Username  |  IP Address";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m          OpenSSH User Login              \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42mID  |  Username  |  IP Address            \E[0m";
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
 data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
 
@@ -249,32 +254,34 @@ do
         if [ $NUM -eq 1 ]; then
                 echo "$PID - $USER - $IP";
         fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m─────────────────────────────────────\033[0m"
 
 done
 if [ -f "/etc/openvpn/server/openvpn-tcp.log" ]; then
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m          OpenVPN TCP User Login         \E[0m"
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo "Username  |  IP Address  |  Connected Since";
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+        echo -e "\033[1;93m│$NC\033[42m          OpenVPN TCP User Login              \E[0m"
+        echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+        echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+        echo -e "\033[1;93m│$NC\033[42mUsername  |  IP Address  |  Connected Since              \E[0m";
+        echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
         cat /etc/openvpn/server/openvpn-tcp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-tcp.txt
         cat /tmp/vpn-login-tcp.txt
 fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m─────────────────────────────────────\033[0m"
 
 if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m          OpenVPN UDP User Login         \E[0m"
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo "Username  |  IP Address  |  Connected Since";
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+        echo -e "\033[1;93m│$NC\033[42m          OpenVPN UDP User Login         \E[0m"
+        echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+        echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42mUsername  |  IP Address  |  Connected Since";
+        echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
         cat /etc/openvpn/server/openvpn-udp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-udp.txt
         cat /tmp/vpn-login-udp.txt
 fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m─────────────────────────────────────\033[0m"
 echo "";
 
 rm -f /tmp/login-db-pid.txt
@@ -287,11 +294,12 @@ menu
 }
 function member(){
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m                 MEMBER SSH               \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"      
-echo "USERNAME          EXP DATE          STATUS"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m                 MEMBER SSH               \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42mUSERNAME          EXP DATE          STATUS"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 while read expired
 do
 AKUN="$(echo $expired | cut -d: -f1)"
@@ -307,18 +315,18 @@ fi
 fi
 done < /etc/passwd
 JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo "Account number: $JUMLAH user"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42mAccount number: $JUMLAH user"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
 function renew(){
 clear
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m               RENEW  USER                \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 echo
 read -p "Username : " User
 egrep "^$User" /etc/passwd >/dev/null
@@ -334,24 +342,24 @@ usermod -e  $Expiration $User
 egrep "^$User" /etc/passwd >/dev/null
 echo -e "$Pass\n$Pass\n"|passwd $User &> /dev/null
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m               RENEW  USER                \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 echo -e ""
 echo -e " Username : $User"
 echo -e " Days Added : $Days Days"
 echo -e " Expires on :  $Expiration_Display"
 echo -e ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m─────────────────────────────────────\033[0m"
 else
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m               RENEW  USER                \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 echo -e ""
 echo -e "   Username Doesnt Exist      "
 echo -e ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m─────────────────────────────────────\033[0m"
 fi
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
@@ -368,18 +376,17 @@ else
 sts="${Error}"
 fi
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m             AUTOKILL SSH          \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m             AUTOKILL SSH          \E[0m"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 echo -e "Status Autokill : $sts        "
-echo -e ""
-echo -e "[1]  AutoKill After 5 Minutes"
-echo -e "[2]  AutoKill After 10 Minutes"
-echo -e "[3]  AutoKill After 15 Minutes"
-echo -e "[4]  Turn Off AutoKill/MultiLogin"
-echo -e "[x]  Menu"
-echo ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│  ${grenbo}1.${NC} \033[0;36mAutoKill After 5 Minutes"
+echo -e "\033[1;93m│  ${grenbo}2.${NC} \033[0;36mAutoKill After 10 Minutes"
+echo -e "\033[1;93m│  ${grenbo}3.${NC} \033[0;36mAutoKill After 15 Minutes"
+echo -e "\033[1;93m│  ${grenbo}4.${NC} \033[0;36mTurn Off AutoKill/MultiLogin"
+echo -e "\033[1;93m│  ${grenbo}x.${NC} \033[0;36mMenu"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 echo -e ""
 read -p "Select From Options [1-4 or x] :  " AutoKill
 read -p "Multilogin Maximum Number Of Allowed: " max
@@ -394,12 +401,12 @@ case $AutoKill in
                 echo "*/5 * * * *  root /usr/bin/tendang $max" >>/etc/cron.d/tendang && chmod +x /etc/cron.d/tendang
                 echo "" > /root/log-limit.txt
                 echo -e ""
-                echo -e "======================================"
+                echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
                 echo -e ""
                 echo -e "      Allowed MultiLogin : $max"
                 echo -e "      AutoKill Every     : 5 Minutes"      
                 echo -e ""
-                echo -e "======================================"
+                echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
                 service cron reload >/dev/null 2>&1
                 service cron restart >/dev/null 2>&1                                                                 
                 ;;
@@ -412,12 +419,12 @@ case $AutoKill in
                 echo "*/10 * * * *  root /usr/bin/tendang $max" >>/etc/cron.d/tendang && chmod +x /etc/cron.d/tendang
                 echo "" > /root/log-limit.txt
                 echo -e ""
-                echo -e "======================================"
+                echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
                 echo -e ""
                 echo -e "      Allowed MultiLogin : $max"
                 echo -e "      AutoKill Every     : 10 Minutes"
                 echo -e ""
-                echo -e "======================================"
+                echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
                 service cron reload >/dev/null 2>&1
                 service cron restart >/dev/null 2>&1
                 ;;
@@ -430,12 +437,12 @@ case $AutoKill in
                 echo "*/15 * * * *  root /usr/bin/tendang $max" >>/etc/cron.d/tendang && chmod +x /etc/cron.d/tendang
                 echo "" > /root/log-limit.txt
                 echo -e ""
-                echo -e "======================================"
+                echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
                 echo -e ""
                 echo -e "      Allowed MultiLogin : $max"
                 echo -e "      AutoKill Every     : 15 Minutes"
                 echo -e ""
-                echo -e "======================================"
+                echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
                 service cron reload >/dev/null 2>&1
                 service cron restart >/dev/null 2>&1          
                 ;;
@@ -443,11 +450,11 @@ case $AutoKill in
                 rm -fr /etc/cron.d/tendang
                 echo "" > /root/log-limit.txt
                 echo -e ""
-                echo -e "======================================"
+                echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
                 echo -e ""
                 echo -e "      AutoKill MultiLogin Turned Off"
                 echo -e ""
-                echo -e "======================================"
+                echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
                 service cron reload >/dev/null 2>&1
                 service cron restart >/dev/null 2>&1
                 ;;
@@ -462,20 +469,20 @@ read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
 clear
-echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "       ${BIWhite}${UWhite}SSH ${NC}"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│$NC\033[42m            MENU MANAGER SSH              $NC"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;93m│  ${grenbo}1.${NC} \033[0;36mAdd Account SSH      "
+echo -e "\033[1;93m│  ${grenbo}2.${NC} \033[0;36mDelete Account SSH      "
+echo -e "\033[1;93m│  ${grenbo}3.${NC} \033[0;36mRenew Account SSH      "
+echo -e "\033[1;93m│  ${grenbo}4.${NC} \033[0;36mCek User SSH     "
+echo -e "\033[1;93m│  ${grenbo}5.${NC} \033[0;36mMullog SSH     "
+echo -e "\033[1;93m│  ${grenbo}6.${NC} \033[0;36mAuto Del user Exp     "
+echo -e "\033[1;93m│  ${grenbo}7.${NC} \033[0;36mAuto Kill user SSH    "
+echo -e "\033[1;93m│  ${grenbo}8.${NC} \033[0;36mCek Member SSH"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
 echo -e ""
-echo -e "     ${BICyan}[${BIWhite}1${BICyan}] Add Account SSH      "
-echo -e "     ${BICyan}[${BIWhite}2${BICyan}] Delete Account SSH      "
-echo -e "     ${BICyan}[${BIWhite}3${BICyan}] Renew Account SSH      "
-echo -e "     ${BICyan}[${BIWhite}4${BICyan}] Cek User SSH     "
-echo -e "     ${BICyan}[${BIWhite}5${BICyan}] Mullog SSH     "
-echo -e "     ${BICyan}[${BIWhite}6${BICyan}] Auto Del user Exp     "
-echo -e "     ${BICyan}[${BIWhite}7${BICyan}] Auto Kill user SSH    "
-echo -e "     ${BICyan}[${BIWhite}8${BICyan}] Cek Member SSH"
-echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
-echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
-echo ""
 read -p " Select menu : " opt
 echo -e ""
 case $opt in

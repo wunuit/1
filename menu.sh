@@ -55,7 +55,6 @@ export Server_Port="443"
 export Server_IP="underfined"
 export Script_Mode="Stable"
 export Auther=".geovpn"
-
 # // Root Checking
 if [ "${EUID}" -ne 0 ]; then
 		echo -e "${EROR} Please Run This Script As Root User !"
@@ -221,6 +220,12 @@ export sem=$( curl -s https://raw.githubusercontent.com/wunuit/test/main/version
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 ISPVPS=$( curl -s ipinfo.io/org )
+RAM=$(free -m | awk 'NR==2 {print $2}')
+USAGERAM=$(free -m | awk 'NR==2 {print $3}')
+MEMOFREE=$(printf '%-1s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
+LOADCPU=$(printf '%-3s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
+MODEL=$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')
+CORE=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
 export Server_URL="raw.githubusercontent.com/wunuit/test/main"
 License_Key=$(cat /etc/${Auther}/license.key)
 export Nama_Issued_License=$( curl -s https://${Server_URL}/validated-registered-license-key.txt | grep -w $License_Key | cut -d ' ' -f 7-100 | tr -d '\r' | tr -d '\r\n')
@@ -228,33 +233,38 @@ clear
 echo -e "\033[0;34m┌─────────────────────────────────────────────────────┐${NC}"
 echo -e "\033[0;34m│                  ${BIWhite}${UWhite}Server Informations${NC}"
 echo -e "\033[0;34m│"
-echo -e "\033[0;34m│  ${BIGREEN}Use Core        :  ${BIPurple}XRAY-CORE${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}Current Domain  :  ${BIPurple}$(cat /etc/xray/domain)${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}IP-VPS          :  ${BIYellow}$IPVPS${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}ISP-VPS         :  ${BIYellow}$ISPVPS${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}ISP-VPS         :  ${BIWhite}$ISPVPS${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}System OS       :  ${BIWhite}$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g') ${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Core System     :  ${BIWhite}$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)") ${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Server RAM      :  ${BIWhite}$(free -m | awk 'NR==2 {print $2}') MB${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Usage RAM       :  ${BIWhite}$(free -m | awk 'NR==2 {print $3}') MB${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Load CPU        :  ${BIWhite}$(printf '%-3s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')") ${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Usage Memory    :  ${BIWhite}$(printf '%-1s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')") ${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Current Domain  :  ${BIWhite}$(cat /etc/xray/domain)${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}IP-VPS          :  ${BIWhite}$IPVPS${NC}"
 echo -e "\033[0;34m└─────────────────────────────────────────────────────┘${NC}"
 echo -e "\033[0;34m┌─────────────────────────────────────────────────────┐${NC}"
 echo -e "\033[0;34m│ $NC${BIWhite} SSH ${NC}: $ressh"" ${BIWhite} NGINX ${NC}: $resngx"" ${BIWhite}  XRAY ${NC}: $resv2r"" ${BIWhite} TROJAN ${NC}: $resv2r\E[0m\033[0;34m      │"
 echo -e "\033[0;34m│ $NC${BIWhite}          DROPBEAR ${NC}: $resdbr" "${BIWhite} SSH-WS ${NC}: $ressshws \E[0m\033[0;34m               │"
 echo -e "\033[0;34m└─────────────────────────────────────────────────────┘${NC}"
 echo -e "\033[0;34m┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}01${BIGREEN}] ${NC}SSH MANAGER${BIGREEN}${BIYellow}${BIGREEN}${NC}             ${BIGREEN}[${BIWhite}13${BIGREEN}] ${NC}EDIT-BANNER ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}02${BIGREEN}] ${NC}VMESS MANAGER ${BIGREEN}${BIYellow}${BIGREEN}${NC}          ${BIGREEN}[${BIWhite}14${BIGREEN}] ${NC}CEK-SERVICE ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}03${BIGREEN}] ${NC}VLESS MANAGER ${BIGREEN}${BIYellow}${BIGREEN}${NC}          ${BIGREEN}[${BIWhite}15${BIGREEN}] ${NC}CEK-TRAFIK ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}04${BIGREEN}] ${NC}TROJAN MANAGER ${BIGREEN}${BIYellow}${BIGREEN}${NC}         ${BIGREEN}[${BIWhite}16${BIGREEN}] ${NC}CEK-SPEED SERVER${BIGREEN}${BIYellow}${BIGREEN}${NC}"
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}05${BIGREEN}] ${NC}SHADOWSOCKS MANAGER ${BIGREEN}${BIYellow}${BIGREEN}${NC}    ${BIGREEN}[${BIWhite}17${BIGREEN}] ${NC}CEK-BANDWIDTH ${BIGREEN}${BIYellow}${BIGREEN}${NC}"
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}06${BIGREEN}] ${NC}TENDANG  USER${BIGREEN}${BIYellow}${BIGREEN}${NC}           ${BIGREEN}[${BIWhite}18${BIGREEN}] ${NC}LIMIT-SPEED ${BIGREEN}${BIYellow}${BIGREEN}${NC}"
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}07${BIGREEN}] ${NC}AUTO-REBOOT SERVER${BIGREEN}${BIYellow}${BIGREEN}${NC}      ${BIGREEN}[${BIWhite}19${BIGREEN}] ${NC}WEBMIN ${BIGREEN}${BIYellow}${BIGREEN}${NC}"
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}08${BIGREEN}] ${NC}REBOOT SERVER${BIGREEN}${BIYellow}${BIGREEN}${NC}           ${BIGREEN}[${BIWhite}20${BIGREEN}] ${NC}INFO-SCRIPT ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}09${BIGREEN}] ${NC}RESTART SERVER${BIGREEN}${BIYellow}${BIGREEN}${NC}          ${BIGREEN}[${BIWhite}21${BIGREEN}] ${NC}CLEAR-LOG ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}10${BIGREEN}] ${NC}BACKUP/RESTORE ${BIGREEN}${BIYellow}${BIGREEN}${NC}         ${BIGREEN}[${BIWhite}xx${BIGREEN}] ${NC} EXIT ${BIGREEN}${BIYellow}${BIGREEN}${NC}"  
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}11${BIGREEN}] ${NC}ADD-HOST/DOMAIN ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
-echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}12${BIGREEN}] ${NC}RENEW SSL CERTIFIKATE ${BIGREEN}${BIYellow}${BIGREEN}${NC}"
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}01${BIGREEN}] ${BIWhite}${NC}SSH MANAGER${BIGREEN}${BIYellow}${BIGREEN}${NC}             ${BIGREEN}[${BIWhite}13${BIGREEN}] ${NC}EDIT-BANNER ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}02${BIGREEN}] ${BIWhite}${NC}VMESS MANAGER ${BIGREEN}${BIYellow}${BIGREEN}${NC}          ${BIGREEN}[${BIWhite}14${BIGREEN}] ${NC}CEK-SERVICE ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}03${BIGREEN}] ${BIWhite}${NC}VLESS MANAGER ${BIGREEN}${BIYellow}${BIGREEN}${NC}          ${BIGREEN}[${BIWhite}15${BIGREEN}] ${NC}CEK-TRAFIK ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}04${BIGREEN}] ${BIWhite}${NC}TROJAN MANAGER ${BIGREEN}${BIYellow}${BIGREEN}${NC}         ${BIGREEN}[${BIWhite}16${BIGREEN}] ${NC}CEK-SPEED SERVER${BIGREEN}${BIYellow}${BIGREEN}${NC}"
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}05${BIGREEN}] ${BIWhite}${NC}SHADOWSOCKS MANAGER ${BIGREEN}${BIYellow}${BIGREEN}${NC}    ${BIGREEN}[${BIWhite}17${BIGREEN}] ${NC}CEK-BANDWIDTH ${BIGREEN}${BIYellow}${BIGREEN}${NC}"
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}06${BIGREEN}] ${BIWhite}${NC}TENDANG  USER${BIGREEN}${BIYellow}${BIGREEN}${NC}           ${BIGREEN}[${BIWhite}18${BIGREEN}] ${NC}LIMIT-SPEED ${BIGREEN}${BIYellow}${BIGREEN}${NC}"
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}07${BIGREEN}] ${BIWhite}${NC}AUTO-REBOOT SERVER${BIGREEN}${BIYellow}${BIGREEN}${NC}      ${BIGREEN}[${BIWhite}19${BIGREEN}] ${NC}WEBMIN ${BIGREEN}${BIYellow}${BIGREEN}${NC}"
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}08${BIGREEN}] ${BIWhite}${NC}REBOOT SERVER${BIGREEN}${BIYellow}${BIGREEN}${NC}           ${BIGREEN}[${BIWhite}20${BIGREEN}] ${NC}INFO-SCRIPT ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}09${BIGREEN}] ${BIWhite}${NC}RESTART SERVER${BIGREEN}${BIYellow}${BIGREEN}${NC}          ${BIGREEN}[${BIWhite}21${BIGREEN}] ${NC}CLEAR-LOG ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}10${BIGREEN}] ${BIWhite}${NC}BACKUP/RESTORE ${BIGREEN}${BIYellow}${BIGREEN}${NC}         ${BIGREEN}[${BIWhite}xx${BIGREEN}] ${NC} EXIT ${BIGREEN}${BIYellow}${BIGREEN}${NC}"  
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}11${BIGREEN}] ${BIWhite}${NC}ADD-HOST/DOMAIN ${BIGREEN}${BIYellow}${BIGREEN}${NC}" 
+echo -e "\033[0;34m│ $NC${BIGREEN}[${BIWhite}12${BIGREEN}] ${BIWhite}${NC}RENEW SSL CERTIFICATE ${BIGREEN}${BIYellow}${BIGREEN}${NC}"
 echo -e "\033[0;34m└─────────────────────────────────────────────────────┘${NC}"
 echo -e "\033[0;34m┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "\033[0;34m│ $NC Version      ${NC} : $sem Last Update"
-echo -e "\033[0;34m│ $NC User          :\033[1;36m $Nama_Issued_License \e[0m"
-echo -e "\033[0;34m│ $NC Expiry script${NC} : ${BIYellow}$(cat /etc/${Auther}/license-remaining-active-days.db)${NC} Days"
+echo -e "\033[0;34m│ ${BIWhite}$NC Version      ${NC} : $sem Last Update"
+echo -e "\033[0;34m│ ${BIWhite}$NC User          :\033[1;36m $Nama_Issued_License \e[0m"
+echo -e "\033[0;34m│ ${BIWhite}$NC Expiry script${NC} : ${BIYellow}$(cat /etc/${Auther}/license-remaining-active-days.db)${NC} Days"
 echo -e "\033[0;34m└─────────────────────────────────────────────────────┘${NC}"
 echo
 read -p " Select menu : " opt
