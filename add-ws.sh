@@ -455,8 +455,8 @@ echo -e "Link (Vmess Flex) : ${vmesslink4}" | tee -a /etc/log-create-user.log
 echo -e "-----------------------" | tee -a /etc/log-create-user.log
 echo -e "Link GRPC : ${vmesslink5}" | tee -a /etc/log-create-user.log
 echo -e "-----------------------" | tee -a /etc/log-create-user.log
-echo -e "OpenClash : http://${domain}:81/vmess-$user.txt" | tee -a /etc/log-create-user.log
-echo -e "-----------------------" | tee -a /etc/log-create-user.log
+#echo -e "OpenClash : http://${domain}:81/vmess-$user.txt" | tee -a /etc/log-create-user.log
+#echo -e "-----------------------" | tee -a /etc/log-create-user.log
 echo -e "Aktif Selama   : $masaaktif Hari" | tee -a /etc/log-create-user.log
 echo -e "Dibuat Pada    : $tnggl" | tee -a /etc/log-create-user.log
 echo -e "Berakhir Pada  : $expe" | tee -a /etc/log-create-user.log
