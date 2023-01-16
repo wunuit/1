@@ -219,10 +219,7 @@ menu
 export sem=$( curl -s https://raw.githubusercontent.com/wunuit/test/main/versions)
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
-ISPVPS=$( curl -s ipinfo.io/org )
 RAM=$(free -m | awk 'NR==2 {print $2}')
-USAGERAM=$(free -m | awk 'NR==2 {print $3}')
-MEMOFREE=$(printf '%-1s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
 LOADCPU=$(printf '%-3s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
 MODEL=$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')
 CORE=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
@@ -233,13 +230,10 @@ clear
 echo -e "\033[0;34m┌─────────────────────────────────────────────────────┐${NC}"
 echo -e "\033[0;34m│                  ${BIWhite}${UWhite}Server Informations${NC}"
 echo -e "\033[0;34m│"
-echo -e "\033[0;34m│  ${BIGREEN}ISP-VPS         :  ${BIWhite}$ISPVPS${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}System OS       :  ${BIWhite}$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g') ${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}Core System     :  ${BIWhite}$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)") ${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}Server RAM      :  ${BIWhite}$(free -m | awk 'NR==2 {print $2}') MB${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}Usage RAM       :  ${BIWhite}$(free -m | awk 'NR==2 {print $3}') MB${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}Load CPU        :  ${BIWhite}$(printf '%-3s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')") ${NC}"
-echo -e "\033[0;34m│  ${BIGREEN}Usage Memory    :  ${BIWhite}$(printf '%-1s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')") ${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}System OS       :  ${BIWhite}${MODEL} ${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Core System     :  ${BIWhite}${CORE} ${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Server RAM      :  ${BIWhite}${RAM} MB${NC}"
+echo -e "\033[0;34m│  ${BIGREEN}Load CPU        :  ${BIWhite}${LOADCPU}% ${NC}"
 echo -e "\033[0;34m│  ${BIGREEN}Current Domain  :  ${BIWhite}$(cat /etc/xray/domain)${NC}"
 echo -e "\033[0;34m│  ${BIGREEN}IP-VPS          :  ${BIWhite}$IPVPS${NC}"
 echo -e "\033[0;34m└─────────────────────────────────────────────────────┘${NC}"
