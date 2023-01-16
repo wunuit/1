@@ -393,7 +393,7 @@ pelerr=$(cat /etc/xray/passwd)
 uuid=$(cat /proc/sys/kernel/random/uuid)
 
 # xray config
-cat <<EOF> /usr/local/etc/xray/config.json
+cat <<EOF> /etc/xray/config.json
 {
   "log" : {
     "access": "/var/log/xray/access.log",
@@ -699,7 +699,7 @@ User=www-data
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE                            
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json
+ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
 Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000
@@ -722,10 +722,12 @@ systemctl restart nginx >/dev/null 2>&1
 # Restart All Service
 echo -e "$YELLOW[SERVICE]$NC Restart All Service"
 sleep 1
+echo ""
 chown -R www-data:www-data /home/vps/public_html
 # Enable & Restart & Xray & Trojan & Nginx
 sleep 1
 echo -e "[ ${GREEN}ok${NC} ] Restart & Xray & Nginx"
 systemctl daemon-reload >/dev/null 2>&1
 systemctl restart xray >/dev/null 2>&1
-systemctl restart nginx >/dev/null 2>&1
+systemctl restart nginx >/dev/null 2>&1 
+clear

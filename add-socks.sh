@@ -132,7 +132,7 @@ echo -e "\\E[0;41;36m      Add Socks Ws/Grpc Account    \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 		read -rp "User: " -e user
-		CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
+		CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
@@ -152,9 +152,9 @@ read -rp "Password: " -e pwd
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#socksws$/a\#ss '"$user $exp"'\
-},{"user": "'""$user""'","pass": "'""$pwd""'"' /usr/local/etc/xray/config.json
+},{"user": "'""$user""'","pass": "'""$pwd""'"' /etc/xray/config.json
 sed -i '/#socksgrpc$/a\#ss '"$user $exp"'\
-},{"user": "'""$user""'","pass": "'""$pwd""'"' /usr/local/etc/xray/config.json
+},{"user": "'""$user""'","pass": "'""$pwd""'"' /etc/xray/config.json
 systemctl restart xray
 cat > /home/vps/public_html/socksws-$user.txt <<-END
 {
