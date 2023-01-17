@@ -252,6 +252,8 @@ cat >/etc/nginx/conf.d/xray.conf <<EOF
     server {
              listen 80;
              listen [::]:80;
+             listen 55;
+             listen [::]:55;
              listen 8080;
              listen [::]:8080;
              listen 443 ssl http2 reuseport;
@@ -729,5 +731,5 @@ sleep 1
 echo -e "[ ${GREEN}ok${NC} ] Restart & Xray & Nginx"
 systemctl daemon-reload >/dev/null 2>&1
 systemctl restart xray >/dev/null 2>&1
-systemctl restart nginx >/dev/null 2>&1 
+systemctl restart nginx >/dev/null 2>&1�
 clear
