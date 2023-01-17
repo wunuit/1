@@ -210,9 +210,9 @@ apt install -y nginx
 cd
 rm -fr /etc/nginx/sites-enabled/default
 rm -fr /etc/nginx/sites-available/default
-wget -q -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/wunuit/1/main/nginx.conf" 
+wget -q -O /etc/nginx/nginx.conf "https://${Server_DOWNLOAD}/nginx.conf" 
 #mkdir -p /home/vps/public_html
-wget -q -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/wunuit/1/main/vps.conf"
+wget -q -O /etc/nginx/conf.d/vps.conf "https://${Server_DOWNLOAD}/vps.conf"
 
 # Install Xray #
 #==========#
@@ -731,5 +731,5 @@ sleep 1
 echo -e "[ ${GREEN}ok${NC} ] Restart & Xray & Nginx"
 systemctl daemon-reload >/dev/null 2>&1
 systemctl restart xray >/dev/null 2>&1
-systemctl restart nginx >/dev/null 2>&1�
+systemctl restart nginx >/dev/null 2>&1
 clear
